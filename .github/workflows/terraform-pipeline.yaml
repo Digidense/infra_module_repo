@@ -3,15 +3,13 @@ name: Terraform Module Workflow
 on:
   workflow_call:
     inputs:
-      aws_region:
-        description: 'AWS Region'
+      repo_name:
+        description: 'Repository Name'
         required: true
         type: string
-      branch_name:
-        description: 'Branch Name'
-        required: true
-        type: string
-
+env:
+  REPO_NAME: ${{ inputs.repo_name }}       
+    
 jobs:
   terraform-pipeline:
     name: Terraform CI/CD Pipeline
